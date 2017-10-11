@@ -359,7 +359,7 @@ double pme::compute_threshold(double cut_off, double tol) const {
   for (iter = 0; iter < max_iters; ++iter) {
     beta -= (direct_term(r2, beta2, aux) - tol) / diff_direct_term(beta, cut_off);
     beta2 = beta * beta;
-    if (isinf(beta) || isnan(beta)) {
+    if (std::isinf(beta) || std::isnan(beta)) {
       beta_init /= 2.0;
       beta = beta_init;
 
